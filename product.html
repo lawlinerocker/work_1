@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            const fruits = [
+            {
+                "id": 1,
+                "name": "orange",
+                "price": 40,
+                "img": "https://www.santosfood.com/wp-content/uploads/2020/01/img-7.jpg"
+            },
+            {
+                "id": 2,
+                "name": "mango",
+                "price": 20,
+                "img": "http://postnoname.com/wp-content/uploads/2017/09/mango.jpg"
+            },
+            {
+                "id": 3,
+                "name": "strawberry",
+                "price":120,
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg/1200px-Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg"
+            },
+            {
+                "id": 4,
+                "name": "rambutan",
+                "price": 40,
+                "img": "https://static.bigc.co.th/media/catalog/product/0/2/0214304.jpg"
+            },
+            {
+                "id": 5,
+                "name": "longan",
+                "price": 40,
+                "img": "https://thethaiger.com/wp-content/uploads/2021/08/Longan-ban-to-China-lifted-savoryexperiments.com_.jpg"
+            },
+            {
+                "id": 6,
+                "name": "watermelon",
+                "price": 55,
+                "img": "https://image.makewebeasy.net/makeweb/0/qUs8Q7smr/Content/%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%81%E0%B8%B1%E0%B8%94%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B9%81%E0%B8%95%E0%B8%87%E0%B9%82%E0%B8%A1__Watermelon_Extract_5_%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%82%E0%B8%A2%E0%B8%8A%E0%B8%99%E0%B9%8C%E0%B8%8A%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B9%80%E0%B8%A5%E0%B8%B4%E0%B8%A8_%E0%B9%81%E0%B8%AB%E0%B9%88%E0%B8%87%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%87%E0%B8%B2%E0%B8%A1_%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B8%84%E0%B8%99%E0%B8%84%E0%B8%B9%E0%B9%88%E0%B8%84%E0%B8%A7%E0%B8%A3.jpg"
+            },
+            {
+                "id": 7,
+                "name": "durian",
+                "price": 220,
+                "img": "https://healthiersteps.com/wp-content/uploads/2021/09/durian-1.jpg"
+            },
+            {
+                "id": 8,
+                "name": "apple",
+                "price": 80,
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/1200px-Red_Apple.jpg"
+            },
+            {
+                "id": 9,
+                "name": "kiwi",
+                "price": 75,
+                "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Kiwi_%28Actinidia_chinensis%29_1_Luc_Viatour_edit.jpg/1200px-Kiwi_%28Actinidia_chinensis%29_1_Luc_Viatour_edit.jpg"
+            },
+            {
+                "id": 10,
+                "name": "banana",
+                "price": 45,
+                "img": "https://image.makewebeasy.net/makeweb/0/aNSsujWTa/FruitandVegs/Picture14.png?v=202012190947"
+            },
+        ]
+
+        
+        let table_prop = "";
+        let unshowTB = false;
+        let showTB = false;
+
+        function showTables() {
+            
+            showTB = !showTB;
+            if (showTB) {
+                if (unshowTB) {
+                    document.getElementById("product_table").style.display = "block";
+                } else {
+                    table_prop += "<table>";
+                    table_prop += "<tr>" +
+                        "<th>" + "Number" + "</th>" +
+                        "<th>" + "Name" + "</th>" +
+                        "<th>" + "Price" + "</th>" +
+                        "<th>" + "Image" + "</th>" +
+                        "</tr>";
+                    fruits.forEach(tableProps);
+                    table_prop += "</table>";
+                    document.getElementById('product_table').innerHTML = table_prop;
+                    unshowTB = !unshowTB;
+                }
+
+            } else {
+                document.getElementById('product_table').style.display = "none";
+            }
+        }
+
+        function tableProps(value) {
+            table_prop += "<tr>";
+            table_prop += "<td>" + value.id + "</td>";
+            table_prop += "<td>" + value.name + "</td>";
+            table_prop += "<td>" + value.price + "</td>";
+            table_prop += "<td>" + '<img src="' + value.img + '"alt="' + value.img + '">' + "</td>";
+            table_prop += "</tr>";
+        }
+        </script>
+        <style>
+            h1{
+                color:yellowgreen;
+                text-align: center;
+                font-size: 50px;
+                font-weight: bold;
+            }
+            img {
+                width: 150px;
+                height: auto;
+               
+                
+            }
+            p{
+                font-weight: bolder;
+                text-align: center;
+                font-size: 25px;
+                font-weight: bold;
+                color:red
+            }
+            button{
+                padding: 15px 32px;
+                border-radius: 30;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Fruits shop</h1>
+        
+        <p>Shopping List</p>
+        <button type="button" class="button"  onclick="showTables()">
+        Show / Hide
+        </button>
+        <div id="content">
+        <div id="product_table"></div>
+    </div>
+    </body>
+</html>
